@@ -1234,8 +1234,8 @@ function signInWithPopupRedirect(provider) {
   var glob = {
     signInWithPopup,
     linkWithPopup,
-    reauthenticateWithPopup,
-  }
+    reauthenticateWithPopup
+  };
   var action = $('input[name=popup-redirect-action]:checked').val();
   var type = $('input[name=popup-redirect-type]:checked').val();
   var method = null;
@@ -1291,13 +1291,16 @@ function signInWithPopupRedirect(provider) {
   console.log('Provider:');
   console.log(provider);
   if (type == 'popup') {
-    glob[method](inst, provider, browserPopupRedirectResolver).then(function(response) {
+    glob[method](inst, provider, browserPopupRedirectResolver).then(function(
+      response
+    ) {
       console.log('Popup response:');
       console.log(response);
       alertSuccess(action + ' with ' + provider['providerId'] + ' successful!');
       logAdditionalUserInfo(response);
       onAuthSuccess(activeUser());
-    }, onAuthError);
+    },
+    onAuthError);
   } else {
     alertNotImplemented();
     // try {
