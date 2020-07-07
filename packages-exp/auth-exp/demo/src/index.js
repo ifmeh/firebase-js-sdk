@@ -51,6 +51,8 @@ import {
   PhoneMultiFactorGenerator,
   OAuthProvider,
   signInWithPopup,
+  linkWithPopup,
+  reauthenticateWithPopup,
   BrowserPopupRedirectResolver
 } from '@firebase/auth-exp';
 
@@ -1231,6 +1233,8 @@ function onPopupRedirectProviderClick(event) {
 function signInWithPopupRedirect(provider) {
   var glob = {
     signInWithPopup,
+    linkWithPopup,
+    reauthenticateWithPopup,
   }
   var action = $('input[name=popup-redirect-action]:checked').val();
   var type = $('input[name=popup-redirect-type]:checked').val();
